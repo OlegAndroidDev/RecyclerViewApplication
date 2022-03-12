@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:padding="5dp"
         android:entries="@array/taskOrdered"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,6 +21,7 @@
         android:id="@+id/task_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:gravity="center"
         android:text="@string/tasks_list"
         android:textColor="@color/black"
@@ -30,25 +32,26 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/my_recycler"
-        android:layout_width="417dp"
-        android:layout_height="557dp"
+        android:layout_width="match_parent"
+        android:layout_height="242dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dropdown_list"
-        app:layout_constraintVertical_bias="0.19" />
+        app:layout_constraintVertical_bias="0.636" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_event"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="512dp"
         android:backgroundTint="@color/teal_700"
         android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.842"
+        app:layout_constraintHorizontal_bias="0.909"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.791" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

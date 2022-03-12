@@ -4,17 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.SecondFragment"
-    android:padding="10dp">
+    tools:context=".views.SecondFragment">
 
     <EditText
         android:id="@+id/event_title_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="4dp"
         android:hint="EVENT TITLE"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,43 +21,38 @@
         android:id="@+id/event_category_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:hint="EVENT CATEGORY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/event_title_et" />
 
     <CalendarView
         android:id="@+id/event_calendar"
-        android:layout_width="416dp"
-        android:layout_height="308dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="305dp"
+        android:layout_height="181dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/event_category_et" /><![CDATA[
-
-    />
-
-    ]]>
+        app:layout_constraintTop_toBottomOf="@+id/event_category_et" />
 
     <android.widget.Button
         android:id="@+id/done_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="80dp"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="212dp"
         android:text="ADD"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/cnl_btn"
         app:layout_constraintTop_toBottomOf="@+id/event_calendar" />
 
     <android.widget.Button
         android:id="@+id/cnl_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="212dp"
         android:text="CANCEL"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/event_calendar" />/>
+        app:layout_constraintTop_toBottomOf="@+id/event_calendar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

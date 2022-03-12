@@ -8,11 +8,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-//        supportFragmentManager.beginTransaction()
-//            .replace(R.id.main_frag_container,FirstFragment.newInstance("",""))
-//            .addToBackStack("firstFragment")
-//            .commit()
-        fragmentNavigation(supportFragmentManager, FirstFragment.newInstance("", ""))
+        if (savedInstanceState == null) {
+            fragmentNavigation(supportFragmentManager, FirstFragment.newInstance("", ""))
+        }
     }
+
 }

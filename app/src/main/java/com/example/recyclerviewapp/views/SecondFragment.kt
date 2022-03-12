@@ -1,10 +1,12 @@
 package com.example.recyclerviewapp.views
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CalendarView
 import android.widget.Toast
 import com.example.recyclerviewapp.EventSingleton
 import com.example.recyclerviewapp.R
@@ -12,6 +14,11 @@ import com.example.recyclerviewapp.adapter.EventAdapter
 import com.example.recyclerviewapp.databinding.FragmentSecondBinding
 import com.example.recyclerviewapp.fragmentNavigation
 import com.example.recyclerviewapp.model.Event
+import java.text.DateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.*
+import java.text.SimpleDateFormat
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,7 +45,9 @@ class SecondFragment : Fragment() {
 
     private lateinit var title: String
     private lateinit var category: String
-    private lateinit var stringDate: String
+
+    val formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy")
+    private var formattedDate = (LocalDate.now()).format(formatter)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,19 +62,22 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-
-
         binding.cnlBtn.setOnClickListener(){
             fragmentNavigation(supportFragmentManager = requireActivity().supportFragmentManager,
                 FirstFragment.newInstance("", ""))
         }
+
+        binding.eventCalendar.setOnDateChangeListener { view, year, month, dayOfMonth ->
+            formattedDate = "${month + 1}/$dayOfMonth/$year"
+        }
+
         binding.doneBtn.setOnClickListener {
             if (binding.eventTitleEt.text.isNotEmpty() && binding.eventCategoryEt.text.isNotEmpty()) {
                 title = binding.eventTitleEt.text.toString()
                 category = binding.eventCategoryEt.text.toString()
-                stringDate = binding.eventCalendar.date.toString()
+                //stringDate = binding.eventCalendar.date.toString()
 
-                EventSingleton.addEvent(Event(title, category, stringDate))
+                EventSingleton.addEvent(Event(title, category, formattedDate))
                 fragmentNavigation(
                     supportFragmentManager = requireActivity().supportFragmentManager,
                     FirstFragment.newInstance("", ""))

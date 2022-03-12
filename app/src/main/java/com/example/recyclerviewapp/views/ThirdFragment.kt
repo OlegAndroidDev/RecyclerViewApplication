@@ -1,6 +1,7 @@
 package com.example.recyclerviewapp.views
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
+import java.util.*
 import kotlin.properties.Delegates
 
 // TODO: Rename parameter arguments, choose names that match
@@ -34,7 +36,6 @@ class ThirdFragment : Fragment() {
         FragmentThirdBinding.inflate(layoutInflater)
     }
     private var position by Delegates.notNull<Int>()
-    private lateinit var stringDate: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +45,6 @@ class ThirdFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val bundle = this.arguments
 
         if (bundle != null) {
@@ -53,13 +53,23 @@ class ThirdFragment : Fragment() {
         binding.eventTitleText.setText(EventSingleton.event[position].title)
         binding.eventCategoryText.setText(EventSingleton.event[position].category)
 
+//        var strDate = EventSingleton.event[position].date
+//        val calendar = Calendar.getInstance()
+//        calendar.set(
+//            (strDate.substring(7)).toInt(),
+//            (strDate.substring(1,2)).toInt(),
+//            (strDate.substring(4,5)).toInt()
+//        )
+//        Log.d("********* ${strDate.substring(7)}","")
+
+        //binding.eventCalendar.date = calendar.timeInMillis
+
         binding.closeBtn.setOnClickListener(){
             fragmentNavigation(supportFragmentManager = requireActivity().supportFragmentManager,
                 FirstFragment.newInstance("", ""))
         }
 
         return binding.root
-        //return inflater.inflate(R.layout.fragment_third, container, false)
     }
 
     companion object {
