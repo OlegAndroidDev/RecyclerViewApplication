@@ -52,23 +52,11 @@ class ThirdFragment : Fragment() {
         }
         binding.eventTitleText.setText(EventSingleton.event[position].title)
         binding.eventCategoryText.setText(EventSingleton.event[position].category)
-
-//        var strDate = EventSingleton.event[position].date
-//        val calendar = Calendar.getInstance()
-//        calendar.set(
-//            (strDate.substring(7)).toInt(),
-//            (strDate.substring(1,2)).toInt(),
-//            (strDate.substring(4,5)).toInt()
-//        )
-//        Log.d("********* ${strDate.substring(7)}","")
-
-        //binding.eventCalendar.date = calendar.timeInMillis
-
+        binding.eventDate.setText(EventSingleton.event[position].date)
         binding.closeBtn.setOnClickListener(){
             fragmentNavigation(supportFragmentManager = requireActivity().supportFragmentManager,
                 FirstFragment.newInstance("", ""))
         }
-
         return binding.root
     }
 
